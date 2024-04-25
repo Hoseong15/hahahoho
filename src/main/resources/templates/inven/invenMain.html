@@ -1,0 +1,94 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout" layout:decorate="~{fragment/basic}">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/inven/invenMain.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        $(function (){
+            $(".inven_input").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $(".list_now").each(function () {
+                    var text = $(this).text().toLowerCase();
+                    if (text.indexOf(value) > -1) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+</th:block>
+
+<div layout:fragment="content">
+    <div id="inven_main_content">
+        <div class="inven_title">
+            <span>재고관리</span>
+        </div>
+        <div class="now_inven_list_box">
+            <div class="now_inven_list_title">
+                <span>현재 재고 상태</span>
+                <div class="search_box">
+                    <input type="text" class="inven_input" id="inven_input" placeholder="제품명,분류 검색">
+                    <i class="bi bi-search"></i>
+                </div>
+            </div>
+            <div class="now_inven_list">
+                <div class="now_inven inven_list_title">
+                    <div class="now_inven">
+                        <span>분류</span>
+                    </div>
+                    <div class="now_inven">
+                        <span>제품명</span>
+                    </div>
+                    <div class="now_inven">
+                        <span>재고량</span>
+                    </div>
+                </div>
+                <div class="now_inven list_now" th:each="invenDto : ${invenList}" th:if="${invenDto.invenStatus == T(com.example.HMS_MANAGEMENT.constent.InvenStatus).BASIC}">
+                    <div class="now_inven">
+                        <span th:text="${invenDto.idClass}" class="class-text"></span>
+                    </div>
+                    <div class="now_inven">
+                        <span th:text="${invenDto.itemNm}" class="item-nm-text"></span>
+                    </div>
+                    <div class="now_inven">
+                        <span th:text="${invenDto.count}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="inven_graph_out">
+            <div class="inven_graph_box">
+                <div class="graph_title">
+                    <span>판매수량</span>
+                </div>
+                <div class="graph">
+
+                </div>
+                <div class="graph_name">
+                    <span>샴푸</span><span>트리트먼트</span>
+                    <span>염색약</span><span>에센스</span>
+                </div>
+            </div>
+            <div class="inven_graph_box">
+                <div class="graph_title">
+                    <span>판매수량</span>
+                </div>
+                <div class="graph">
+
+                </div>
+                <div class="graph_name">
+                    <span>샴푸</span><span>트리트먼트</span>
+                    <span>염색약</span><span>에센스</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

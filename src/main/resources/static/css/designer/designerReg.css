@@ -1,0 +1,126 @@
+#designer_reg_wrap{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 60px;
+}
+#designer_reg_box{
+    width: 450px;
+    height: 530px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.designer_reg_title{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+.designer_reg_content_box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.designer_reg_content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    position: relative;
+}
+.designer_reg_left{
+    width: 150px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.designer_reg_right{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.designer_reg_right input{
+    border: none;
+    background: none;
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 20%);
+    padding-left: 5px;
+    width: 70%;
+    text-align: center;
+}
+.designer_reg_right_date{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+.designer_reg_right_date label{
+    display: flex;
+    align-items: center;
+}
+.editBt{
+    display: none;
+}
+.name_dng, .tel_dng, .date_dng, .sal_dng, .sal_date_reg, .time_dng, .email_dng{
+    position: absolute;
+    bottom: -5px;
+    right: 50px;
+    color: red;
+    font-size: 14px;
+}
+.sal_dng{
+    bottom: -20px;
+}
+.form_reg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+a{ color: #000000}
+
+#morningTime, #afterTime{
+    width: 35%;
+}
+
+.morningText{
+    position: absolute;
+    bottom: -7px;
+    left: 50px;
+    width: 180px;
+    color: red;
+}
+.afterText{
+    position: absolute;
+    bottom: -7px;
+    right: -10px;
+    width: 180px;
+    color: red;
+}

@@ -1,0 +1,144 @@
+#salary_wrap{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 70px;
+}
+#salary_in_wrap{
+    width: 50%;
+    height: 70%;
+    font-size: 20px;
+}
+.salary_bt_box{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-right: 40px;
+    padding-bottom: 10px;
+}
+#salary_content_box{
+    width: 100%;
+    height: 90%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.salary_cont_title{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,20%);
+}
+.salary_date{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.salary_date_text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.salary_date_choice{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.salary_tex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#salary_second{
+    width: 100%;
+    height: 30%;
+    border-bottom: 1px solid rgba(0,0,0,20%);
+}
+.second_box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+}
+.second_text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#salary_third{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,20%);
+}
+.border_right{
+    border-right: 1px solid rgba(0,0,0,20%);
+}
+.third_box{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#salary_fourth{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,20%);
+}
+.fourth_box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+}
+.fourth_text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.fourth_cont{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#salary_foot{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input[type="text"]{
+    height: 30px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 20%);
+    padding-left: 5px;
+    width: 70%;
+}

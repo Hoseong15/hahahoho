@@ -1,0 +1,80 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/basic}">
+<!--<head>-->
+<!--    <meta name="_csrf" th:content="${_csrf.token}"/>-->
+<!--    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>-->
+<!--</head>-->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/inven/invenList.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script th:src="@{/javascript/invenList.js}"></script>
+
+</th:block>
+
+<div layout:fragment="content">
+    <div class="invenList_box">
+        <div class="list_search_box">
+            <div class="list_search">
+                <input type="text" class="list_input" id="list_input" name="list_input" placeholder="제품명,코드,분류 검색">
+                <i class="bi bi-search"></i>
+            </div>
+        </div>
+        <div class="list_content_box">
+            <div class="list_content_title">
+                <div class="list_title_box">
+                    <span>구매일</span>
+                </div>
+                <div class="list_title_box">
+                    <span>제품 분류</span>
+                    <input type="checkbox" class="list_chk all_chk">
+                </div>
+                <div class="list_title_text">
+                    <span>제품명</span>
+                </div>
+                <div class="list_title_box">
+                    <span>제품 코드</span>
+                </div>
+                <div class="list_title_box">
+                    <span>제품 용량</span>
+                </div>
+                <div class="list_title_box">
+                    <span>총 수량</span>
+                </div>
+            </div>
+            <div class="list_content_text" th:each="invenDto : ${invenList}" th:if="${invenDto.invenStatus == T(com.example.HMS_MANAGEMENT.constent.InvenStatus).BUY}">
+                <div class="list_title_box">
+                    <span th:text="${#temporals.format(invenDto.date, 'yyyy.MM.dd')}" class="date-list"></span>
+                </div>
+                <div class="list_title_box">
+                    <span th:text="${invenDto.idClass}" class="idClass-list"></span>
+                    <input type="checkbox" class="list_chk">
+                </div>
+                <div class="list_title_text">
+                    <span th:text="${invenDto.itemNm}" class="itemNm-list"></span>
+                </div>
+                <div class="list_title_box">
+                    <span th:text="${invenDto.idCode}" class="idCode-list"></span>
+                </div>
+                <div class="list_title_box">
+                    <span th:text="${invenDto.itemL}" class="itemL-list"></span>
+                </div>
+                <div class="list_title_box">
+                    <span th:text="${invenDto.count}" class="count-list"></span>
+                </div>
+            </div>
+            <div class="pagination">
+                <a th:href="@{/inven/buyList?page=0}" th:if="${currentPage > 0}"><i class="bi bi-caret-left-fill"></i></a>
+                <span class="page-numbers">
+                        <a th:href="@{'/inven/buyList?page=' + ${i}}" th:each="i : ${#numbers.sequence(0, maxPage - 1)}" th:text="${i + 1}" th:class="${i == currentPage ? 'active' : ''}"></a>
+                    </span>
+                <a th:href="@{/inven/buyList(page=${currentPage + 1})}" th:if="${currentPage < maxPage - 1}"><i class="bi bi-caret-right-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

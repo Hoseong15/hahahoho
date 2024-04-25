@@ -1,0 +1,107 @@
+
+#side{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #071228;
+    opacity: 90%;
+    position: relative;
+}
+#sideBar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu_bar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 105px;
+    border-bottom: 1px #ffffff solid;
+}
+#sideBar span{color: #ffffff;}
+#sideBar .bi{color: #ffffff;}
+.sub_menu{
+    display: none;
+    position: relative;
+    height: 91px;
+}
+.customer_sub_menu{
+    height: 31px;
+}
+.shop_sub_menu{
+    height: 31px;
+}
+.menu_bar:hover, .sub_menu:hover{
+    cursor: pointer;
+}
+.blink{
+    width: 100%;
+    height: 50px;
+}
+.logo{
+    width: 100%;
+    height: 100%;
+}
+img{ width: 100%}
+.top_text{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px #ffffff solid;
+}
+.designer{
+    gap: 75px;
+}
+.home, .sales, .logout{
+    justify-content: start;
+    position: relative;
+    padding-left: 7px;
+    box-sizing: border-box;
+    border: none;
+}
+.subList{
+    position: relative;
+    display: flex;
+    justify-content: end;
+    border-bottom: 1px #ffffff solid;
+    padding-right: 15px;
+    padding-bottom: 3px;
+}
+.invenList,.scheduleList,.cusList,.serviceList{top: 5px; position: relative}
+.buyList,.salaryList,.useList{top: 7px;}
+.sortList,.commuteList{top: 10px;}
+.menu_out_box{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px #ffffff solid;
+}
+a{
+    text-decoration: none;
+}
+.dot{
+    padding-right: 5px;
+    position: relative;
+    bottom: 3px;
+    display: none;
+    font-size: 10px;
+}
+.home_border, .inven_border, .designer_border, .sales_border, .customer_border, .shop_border{
+    width: 15px;
+    height: 50px;
+    position: absolute;
+    background-color: blue;
+    right: 0;
+    z-index: -1;
+    display: none;
+}
+.bi-dash{
+    display: none;
+}

@@ -1,0 +1,175 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/basic}">
+<!--<head>-->
+<!--    <meta name="_csrf" th:content="${_csrf.token}"/>-->
+<!--    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>-->
+<!--</head>-->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/inven/invenList.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+    <script th:src="@{/javascript/invenList.js}"></script>
+
+</th:block>
+
+<div layout:fragment="content">
+    <div class="invenList_box">
+        <div class="list_search_box">
+            <div class="list_search">
+                <input type="text" class="list_input" id="list_input" name="list_input" placeholder="제품명,코드,분류 검색">
+                <i class="bi bi-search"></i>
+            </div>
+            <div class="list_ac_bt">
+                <button type="button" class="btn btn-success writeBt">작성</button>
+                <button type="button" class="btn btn-info buyBt">구매</button>
+                <button type="button" class="btn btn-primary sortBt">판매</button>
+                <button type="button" class="btn btn-success backBt">취소</button>
+                <button type="button" class="btn btn-danger deleteBt deleteGo">삭제</button>
+            </div>
+        </div>
+        <div class="list_content_box">
+            <div class="list_content_title">
+                <div class="list_title_box">
+                    <span>제품 분류</span>
+                    <input type="checkbox" class="list_chk all_chk">
+                </div>
+                <div class="list_title_text">
+                    <span>제품명</span>
+                </div>
+                <div class="list_title_box">
+                    <span>제품 코드</span>
+                </div>
+                <div class="list_title_box">
+                    <div class="title_span_box">
+                        <span>제품 용량</span>
+                        <span>(ml)</span>
+                    </div>
+                </div>
+                <div class="list_title_box">
+                    <span>총 수량</span>
+                </div>
+            </div>
+            <div class="list_content_text" th:each="invenDto : ${invenList}" th:if="${invenDto.invenStatus == T(com.example.HMS_MANAGEMENT.constent.InvenStatus).BASIC}">
+                <div class="list_title_box">
+                    <span th:text="${invenDto.idClass}" class="idClass-list" th:data-id="${invenDto.id}"></span>
+                    <input type="checkbox" class="list_chk">
+                </div>
+                <div class="list_title_text">
+                    <span th:text="${invenDto.itemNm}" class="itemNm-list"></span>
+                </div>
+                <div class="list_title_box">
+                    <span th:text="${invenDto.idCode}" class="idCode-list"></span>
+                </div>
+                <div class="list_title_box">
+                    <span th:text="${invenDto.itemL}" class="itemL-list"></span>
+                </div>
+                <div class="list_title_box">
+                    <span th:text="${invenDto.count}" class="count-list"></span>
+                </div>
+                <div class="result_re" style="display: none">
+                    <span th:text="${invenDto.cash}" class="cash-list"></span>
+                </div>
+                <div class="status_re" style="display: none">
+                    <input type="hidden" th:field="*{invenDto.invenStatus}">
+                </div>
+            </div>
+            <div class="pagination">
+                <a th:href="@{/inven/invenList?page=0}" th:if="${currentPage > 0}"><i class="bi bi-caret-left-fill"></i></a>
+                <span class="page-numbers">
+                        <a th:href="@{'/inven/invenList?page=' + ${i}}" th:each="i : ${#numbers.sequence(0, maxPage - 1)}" th:text="${i + 1}" th:class="${i == currentPage ? 'active' : ''}"></a>
+                    </span>
+                <a th:href="@{/inven/invenList(page=${currentPage + 1})}" th:if="${currentPage < maxPage - 1}"><i class="bi bi-caret-right-fill"></i></a>
+            </div>
+        </div>
+        <div id="modal_wrap">
+            <div id="modal">
+                <div id="modal_content">
+                    <div class="modal_in_box">
+                        <form action="/inven/process" method="post" class="inven_form" th:object="${invenDto}">
+                            <input type="hidden" name="operationType" id="operationType">
+                            <input type="hidden" th:field="*{id}">
+                            <div id="modal_title">
+                                <div class="modal_head">
+                                    <span class="modal_text"></span>
+                                    <span class="basic_text">코드 선택 이후 작성 해주세요.</span>
+                                </div>
+                                <div class="modal_close">
+                                    <button type="submit" class="btn btn-success modal_bt">작성완료</button>
+                                    <button type="button" class="modal_back_bt">X</button>
+                                </div>
+                            </div>
+                            <div id="modal_cont_box">
+                                <div id="modal_cont_title">
+                                    <div class="modal_tit">
+                                        <span>제품명</span>
+                                    </div>
+                                    <div class="modal_tit">
+                                        <span>제품코드</span>
+                                    </div>
+                                    <div class="modal_tit">
+                                        <span>분류</span>
+                                    </div>
+                                    <div class="modal_tit">
+                                        <span>용량</span>
+                                    </div>
+                                    <div class="modal_tit">
+                                        <span>수량</span>
+                                    </div>
+                                    <div class="modal_tit" >
+                                        <span>개당 가격</span>
+                                    </div>
+                                    <div class="modal_tit" style="display: none">
+                                        <span>상태</span>
+                                    </div>
+                                </div>
+                                <div id="modal_cont_text">
+                                    <div class="inven_nm">
+                                        <input type="text" class="inven_input_box" th:field="*{itemNm}">
+                                        <span class="error" th:if="${#fields.hasErrors('itemNm')}" th:errors="*{itemNm}"></span>
+                                    </div>
+                                    <div class="inven_code">
+                                        <select name="code" class="code_select_box" onchange="handleCodeSelection(this)">
+                                            <option value="제품 코드 선택" hidden>제품 코드 선택</option>
+                                            <option value="직접 입력">직접 입력</option>
+                                            <option th:each="invenCode : ${invenList}" th:if="${invenCode.invenStatus == T(com.example.HMS_MANAGEMENT.constent.InvenStatus).BASIC}" th:value="${invenCode.idCode}" th:text="${invenCode.idCode}"></option>
+                                        </select>
+                                        <input type="text" name="selectInput" class="selectInput" th:field="*{idCode}" placeholder="추가할 코드 입력">
+                                        <span class="error" th:if="${#fields.hasErrors('idCode')}" th:errors="*{idCode}"></span>
+                                    </div>
+                                    <div class="inven_class">
+                                        <input type="text" class="inven_input_box" th:field="*{idClass}">
+                                        <span class="error" th:if="${#fields.hasErrors('idClass')}" th:errors="*{idClass}"></span>
+                                    </div>
+                                    <div class="inven_l">
+                                        <input type="number" class="inven_input_box input_num" th:field="*{itemL}">
+                                        <span class="error" th:if="${#fields.hasErrors('itemL')}" th:errors="*{itemL}"></span>
+                                    </div>
+                                    <div class="result_n">
+                                        <input type="number" class="inven_input_box input_num" th:field="*{count}">
+                                        <span class="error" th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></span>
+                                    </div>
+                                    <div class="cash_n">
+                                        <input type="number" class="inven_input_box input_num" th:field="*{cash}">
+                                        <span class="error" th:if="${#fields.hasErrors('cash')}" th:errors="*{cash}"></span>
+                                    </div>
+                                    <div class="status_s" style="display: none">
+                                        <select th:field="*{invenStatus}" class="inven_status_select">
+                                            <option value="상태 체크">상태 체크</option>
+                                            <option th:each="status : ${T(com.example.HMS_MANAGEMENT.constent.InvenStatus).values()}"
+                                                    th:value="${status}" th:text="${status}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

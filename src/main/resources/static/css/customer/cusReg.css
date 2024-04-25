@@ -1,0 +1,57 @@
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-60%,-50%);
+}
+.container h2{
+    width: 100%;
+    border-bottom: 1px solid #aaa;
+}
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.form-group label {
+    flex: 0 0 30%;
+    text-align: right;
+    margin-right: 10px;
+}
+.form-group input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.btn-submit {
+    margin: 0 auto;
+    display: block;
+    width: 30%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+#designer,#visit_date_year,#visit_date_month,#visit_date_day{
+    border: none;
+    margin-left: 5px;
+}
+#visit_date_year{
+    margin-left: 0;
+}

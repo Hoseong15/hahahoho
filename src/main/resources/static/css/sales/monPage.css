@@ -1,0 +1,32 @@
+.monPageWrap {
+    position: absolute;
+    top: 55%;
+    left: 60%;
+    transform: translate(-60%,-55%);
+    width: 40%;
+    height: 70%;
+    border-collapse: collapse;
+    background: #FFFF;
+    border-radius: 10px;
+    padding: 10px;
+}
+.monPageList{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.monPageHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid rgba(170, 170, 170, .2);
+}
+.monPageContent{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

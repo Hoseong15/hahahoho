@@ -1,0 +1,105 @@
+#inven_main_content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    bottom: 60px;
+}
+.inven_title{
+    width: 275px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.now_inven_list_box{
+    width: 942px;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.now_inven_list_title{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,20%);
+    padding: 10px 20px;
+}
+.search_box{
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 5px;
+    position: relative;
+}
+.inven_input{
+    border: 1px solid rgba(0,0,0,20%);
+    border-radius: 10px;
+    height: 100%;
+    padding-left: 15px;
+    outline: none;
+}
+.inven_list_title{
+    border-bottom: 1px solid rgba(0,0,0,20%);
+}
+.search_box .bi-search{
+    position: absolute;
+    right: 15px;
+}
+.now_inven_list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.now_inven{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inven_graph_out{
+    width: 942px;
+    height: 250px;
+    display: flex;
+    gap: 46px;
+}
+.inven_graph_box{
+    width: 447px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+.graph_title{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,20%);
+}
+.graph{
+    width: 100%;
+    height: 185px;
+}
+.graph_name{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-top: 1px solid rgba(0,0,0,20%)
+}

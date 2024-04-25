@@ -1,0 +1,133 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout">
+
+<div th:fragment="side" id="side">
+    <div id="sideBar">
+        <div class="top_side">
+            <div class="top_text">
+                <span>Administration</span>
+            </div>
+            <div class="menu_out_box">
+                <a href="/">
+                    <div class="home menu_bar">
+                        <div>
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>홈</span>
+                        </div>
+                        <div class="home_border"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="inventory menu_bar">
+                <div>
+                    <a href="/inven">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>재고관리</span>
+                    </a>
+                </div>
+                <div>
+                    <i class="bi bi-plus inven_plus"></i>
+                    <i class="bi bi-dash inven_dash"></i>
+                </div>
+                <div class="inven_border"></div>
+            </div>
+            <div class="sub_menu inventory_sub_menu">
+                <div class="invenList subList">
+                    <a href="/inven/invenList"><span>재고 목록</span></a>
+                </div>
+                <div class="buyList subList">
+                    <a href="/inven/buyList"><span>구매 리스트</span></a>
+                </div>
+                <div class=" sortList subList">
+                    <a href="/inven/sortList"><span>판매 리스트</span></a>
+                </div>
+            </div>
+            <div class="designer menu_bar">
+                <div>
+                    <a href="/designer">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>디자이너관리</span>
+                    </a>
+                </div>
+                <div>
+                    <i class="bi bi-plus designer_plus"></i>
+                    <i class="bi bi-dash designer_dash"></i>
+                </div>
+                <div class="designer_border"></div>
+            </div>
+            <div class="sub_menu designer_sub_menu">
+                <div class="scheduleList subList">
+                    <a href="/designer/scheduleList" class="deg_list"><span>일정 관리</span></a>
+                </div>
+                <div class="salaryList subList">
+                    <a href="/designer/salaryList" class="deg_list"><span>월급 관리</span></a>
+                </div>
+                <div class="commuteList subList">
+                    <a href="/designer/commuteList" class="deg_list"><span>근태 관리</span></a>
+                </div>
+            </div>
+            <div class="menu_out_box">
+                <div class="sales menu_bar">
+                    <div class="sales_border"></div>
+                    <div>
+                        <a href="/sales">
+                            <i class="bi bi-house-door-fill"></i>
+                            <span>매출관리</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="customer menu_bar">
+                <div>
+                    <i class="bi bi-house-door-fill"></i>
+                    <span>고객관리</span>
+                </div>
+                <div>
+                    <i class="bi bi-plus customer_plus"></i>
+                    <i class="bi bi-dash customer_dash"></i>
+                </div>
+                <div class="customer_border"></div>
+            </div>
+            <div class="customer_sub_menu sub_menu">
+                <div class="cusList subList">
+                    <a href="/customer/cusList"><span>고객정보</span></a>
+                </div>
+            </div>
+            <div class="shop menu_bar">
+                <div>
+                    <i class="bi bi-house-door-fill"></i>
+                    <span>매장관리</span>
+                </div>
+                <div>
+                    <i class="bi bi-plus shop_plus"></i>
+                    <i class="bi bi-dash shop_dash"></i>
+                </div>
+                <div class="shop_border"></div>
+            </div>
+            <div class="shop_sub_menu sub_menu">
+                <div class="serviceList subList">
+                    <a href="/shop/service"><span>서비스 관리</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_side">
+            <div class="menu_out_box lopo">
+                <div class="logout menu_bar">
+                    <div>
+                        <a href="/login">
+                            <i class="bi bi-door-open-fill"></i>
+                            <span>로그아웃</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="/images/white.png" alt="로고">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</html>

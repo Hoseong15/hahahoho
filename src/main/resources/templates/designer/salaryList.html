@@ -1,0 +1,62 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout" layout:decorate="~{fragment/basic}">
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/designer/salaryList.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+
+</th:block>
+
+<div layout:fragment="content">
+    <div id="designer_salary_wrap">
+        <div id="designer_salary_in_wrap">
+            <div class="salary_title">
+                <span>디자이너 월급 관리</span>
+            </div>
+            <div class="salary_content">
+                <div class="salary_content_title salary_border">
+                    <div class="salary_text">
+                        <span>디자이너 이름</span>
+                    </div>
+                    <div class="salary_text">
+                        <span>월급 지급일</span>
+                    </div>
+                    <div class="salary_text">
+                        <span>월급</span>
+                    </div>
+                    <div class="salary_text">
+                        <span>명세서 발급</span>
+                    </div>
+                </div>
+                <div class="salary_content_title" th:each="designer : ${designerDtoList}">
+                    <div class="salary_text">
+                        <span th:text="${designer.name}"></span>
+                    </div>
+                    <div class="salary_text">
+                        <span th:text="${#temporals.format(designer.date, 'dd')+' 일'}"></span>
+                    </div>
+                    <div class="salary_text">
+                        <span th:text="${#numbers.formatInteger(designer.sal, 3, 'COMMA')+'원'}"></span>
+                    </div>
+                    <div class="salary_text">
+                        <a th:href="@{/designer/salaryPage/{id}(id=${designer.id})}">
+                            <span>발급하기</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="pagination">
+                    <a th:href="@{/designer/salaryList?page=0}" th:if="${currentPage > 0}"><i class="bi bi-caret-left-fill"></i></a>
+                    <span class="page-numbers">
+                        <a th:href="@{'/designer/salaryList?page=' + ${i}}" th:each="i : ${#numbers.sequence(0, maxPage - 1)}" th:text="${i + 1}" th:class="${i == currentPage ? 'active' : ''}"></a>
+                    </span>
+                    <a th:href="@{/designer/salaryList(page=${currentPage + 1})}" th:if="${currentPage < maxPage - 1}"><i class="bi bi-caret-right-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,46 @@
+.salesWarp {
+    width: 100%;
+    height: 80%; ///////
+}
+.salesDetail{
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+
+}
+.salesDetail button{
+    margin-left: 20px;
+}
+.salesContent {
+    position: absolute;
+    right: 100px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+}
+#myChart1,#myChart2{
+    display: none;
+}
+.canvas {
+    width: 100%;
+    height: 80%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.salesMonthView{
+    display:flex;
+    width:100%;
+    justify-content: center;
+    padding-top:20px;
+}
+.salesMonthView .salesMonthPre, .salesMonthView .salesMonthNext{
+    margin:0; cursor: pointer;
+    padding:0 10px;
+}
+.salesMonthView .salesMonthNow{
+
+}
